@@ -1,0 +1,678 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        #reviews-container {
+            position: relative;
+            width: 100%;
+            overflow: hidden;
+        }
+
+        .review {
+            display: flex;
+            overflow-x: hidden;
+            scroll-behavior: smooth;
+        }
+
+        .review-item {
+            flex: 0 0 auto;
+            width: 300px;
+            /* Adjust as needed */
+            margin-right: 20px;
+            /* Adjust as needed */
+        }
+
+        .scroll-button {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 30px;
+            height: 30px;
+            background-color: #333;
+            color: #fff;
+            border: none;
+            cursor: pointer;
+            z-index: 2;
+        }
+
+        #scroll-left {
+            left: 0;
+        }
+
+        #scroll-right {
+            right: 0;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div id="reviews-container" style="display: flex; flex-direction: row; height: 300px;">
+
+
+        <button class="scroll-button" id="scroll-left" onclick="scrollReviews(-1)"> &lt; </button>
+
+        <div class="review">
+            <!-- Individual review with profile image -->
+            <div class="review-item" itemprop="review" itemscope itemtype="http://schema.org/Review"
+                style="margin-right: 20px; width: 248px; padding: 20px; font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;">
+                <!-- Profile image -->
+                <img itemprop="image"
+                    src="https://lh3.googleusercontent.com/a/ACg8ocLsnqMuRn_yfAAAjyoOg8ZourFcKoJNUvcfZ-FBXcQq=s40-c-rp-mo-br100"
+                    alt="Reviewing person Profile Image" style="width: 50px;">
+
+                <!-- Reviewer information -->
+                <div itemprop="author" itemscope itemtype="http://schema.org/Person"
+                    style="display: inline-block; width: 150px; padding-left: 10px; vertical-align:super;">
+                    <span itemprop="name"
+                        style="font-size: 14px; font-weight: 700; line-height: 18px; max-width: 100%; ">Harshit
+                        Chandak</span><svg xmlns="http://www.w3.org/2000/svg" style="width: 12px; margin-left:5px;"
+                        fill="none" viewBox="0 0 14 14"
+                        class="ReviewVerifiedBadge__StyledVerifiedBadge-sc-1l8zk7l-0 jqBsSb es-review-verified-badge-icon">
+                        <path fill="#197BFF"
+                            d="M6.757.236a.35.35 0 0 1 .486 0l1.106 1.07a.35.35 0 0 0 .329.089l1.493-.375a.35.35 0 0 1 .422.244l.422 1.48a.35.35 0 0 0 .24.24l1.481.423a.35.35 0 0 1 .244.422l-.375 1.493a.35.35 0 0 0 .088.329l1.071 1.106a.35.35 0 0 1 0 .486l-1.07 1.106a.35.35 0 0 0-.089.329l.375 1.493a.35.35 0 0 1-.244.422l-1.48.422a.35.35 0 0 0-.24.24l-.423 1.481a.35.35 0 0 1-.422.244l-1.493-.375a.35.35 0 0 0-.329.088l-1.106 1.071a.35.35 0 0 1-.486 0l-1.106-1.07a.35.35 0 0 0-.329-.089l-1.493.375a.35.35 0 0 1-.422-.244l-.422-1.48a.35.35 0 0 0-.24-.24l-1.481-.423a.35.35 0 0 1-.244-.422l.375-1.493a.35.35 0 0 0-.088-.329L.236 7.243a.35.35 0 0 1 0-.486l1.07-1.106a.35.35 0 0 0 .089-.329L1.02 3.829a.35.35 0 0 1 .244-.422l1.48-.422a.35.35 0 0 0 .24-.24l.423-1.481a.35.35 0 0 1 .422-.244l1.493.375a.35.35 0 0 0 .329-.088L6.757.236Z"
+                            data-darkreader-inline-fill="" style="--darkreader-inline-fill: #2b9aff;"></path>
+                        <path fill="#fff" fill-rule="evenodd"
+                            d="M9.065 4.85a.644.644 0 0 1 .899 0 .615.615 0 0 1 .053.823l-.053.059L6.48 9.15a.645.645 0 0 1-.84.052l-.06-.052-1.66-1.527a.616.616 0 0 1 0-.882.645.645 0 0 1 .84-.052l.06.052 1.21 1.086 3.034-2.978Z"
+                            clip-rule="evenodd" data-darkreader-inline-fill=""
+                            style="--darkreader-inline-fill: #e8e6e3;">
+                        </path>
+                    </svg>
+                    <span
+                        style="display: inline-block; font-size: 14px; line-height: 14px; color: rgb(17 17 17 / 50%);">2
+                        months
+                        ago</span>
+                </div>
+
+                <!-- Review details -->
+                <div itemprop="reviewRating" itemscope itemtype="http://schema.org/Rating">
+                    <span style="display: none;" itemprop="ratingValue">5</span>
+                    <span style="width: 40px; font-size: 24px; color: rgb(252 191 2);">
+                        &#9733; &#9733; &#9733; &#9733; &#9733;
+                    </span>
+                </div>
+
+                <span itemprop="description" style="font-size: 19px; color: rgb(17, 17, 17); line-height: 1.4;">If in
+                    need
+                    of a
+                    great faculty for your preparations.... this is the best place...</span>
+
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" style="width: 70px; display:block; margin-top:10px;"
+                    viewBox="0 0 85 36" class="injected-svg"
+                    data-src="https://static.elfsight.com/icons/app-all-in-one-reviews-logos-google-logo-multicolor.svg"
+                    xmlns:xlink="http://www.w3.org/1999/xlink">
+                    <g clip-path="url(#a-1)">
+                        <path fill="#4285F4"
+                            d="M20.778 13.43h-9.862v2.927h6.994c-.345 4.104-3.76 5.854-6.982 5.854-4.123 0-7.72-3.244-7.72-7.791 0-4.43 3.429-7.841 7.73-7.841 3.317 0 5.272 2.115 5.272 2.115l2.049-2.122s-2.63-2.928-7.427-2.928C4.725 3.644 0 8.8 0 14.367c0 5.457 4.445 10.777 10.988 10.777 5.756 0 9.969-3.942 9.969-9.772 0-1.23-.179-1.941-.179-1.941Z">
+                        </path>
+                        <path fill="#EA4335"
+                            d="M28.857 11.312c-4.047 0-6.947 3.163-6.947 6.853 0 3.744 2.813 6.966 6.994 6.966 3.786 0 6.887-2.893 6.887-6.886 0-4.576-3.607-6.933-6.934-6.933Zm.04 2.714c1.99 0 3.876 1.609 3.876 4.201 0 2.538-1.878 4.192-3.885 4.192-2.205 0-3.945-1.766-3.945-4.212 0-2.394 1.718-4.181 3.954-4.181Z">
+                        </path>
+                        <path fill="#FBBC05"
+                            d="M43.965 11.312c-4.046 0-6.946 3.163-6.946 6.853 0 3.744 2.813 6.966 6.994 6.966 3.785 0 6.886-2.893 6.886-6.886 0-4.576-3.607-6.933-6.934-6.933Zm.04 2.714c1.99 0 3.876 1.609 3.876 4.201 0 2.538-1.877 4.192-3.885 4.192-2.205 0-3.945-1.766-3.945-4.212 0-2.394 1.718-4.181 3.955-4.181Z">
+                        </path>
+                        <path fill="#4285F4"
+                            d="M58.783 11.319c-3.714 0-6.634 3.253-6.634 6.904 0 4.16 3.385 6.918 6.57 6.918 1.97 0 3.017-.782 3.79-1.68v1.363c0 2.384-1.448 3.812-3.633 3.812-2.11 0-3.169-1.57-3.537-2.46l-2.656 1.11c.943 1.992 2.839 4.07 6.215 4.07 3.693 0 6.508-2.327 6.508-7.205V11.734h-2.897v1.17c-.89-.96-2.109-1.585-3.726-1.585Zm.269 2.709c1.821 0 3.69 1.554 3.69 4.21 0 2.699-1.865 4.187-3.73 4.187-1.98 0-3.823-1.608-3.823-4.161 0-2.653 1.914-4.236 3.863-4.236Z">
+                        </path>
+                        <path fill="#EA4335"
+                            d="M78.288 11.302c-3.504 0-6.446 2.788-6.446 6.901 0 4.353 3.28 6.934 6.782 6.934 2.924 0 4.718-1.6 5.789-3.032l-2.389-1.59c-.62.962-1.656 1.902-3.385 1.902-1.943 0-2.836-1.063-3.39-2.094l9.266-3.845-.48-1.126c-.896-2.207-2.984-4.05-5.747-4.05Zm.12 2.658c1.263 0 2.171.671 2.557 1.476l-6.187 2.586c-.267-2.002 1.63-4.062 3.63-4.062Z">
+                        </path>
+                        <path fill="#34A853" d="M67.425 24.727h3.044V4.359h-3.044v20.368Z"></path>
+                    </g>
+                    <defs>
+                        <clipPath id="a-1">
+                            <path fill="#fff" d="M0 0h84.515v36H0z"></path>
+                        </clipPath>
+                    </defs>
+                </svg>
+            </div>
+
+
+
+
+
+            <!-- review 2  Start -->
+
+            <div class="review-item" itemprop="review" itemscope itemtype="http://schema.org/Review"
+                style="margin-right: 20px; width: 248px; padding: 20px; font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;">
+                <!-- Profile image -->
+                <img itemprop="image"
+                    src="https://lh3.googleusercontent.com/a-/ALV-UjW9Lc8iqw-fq2xAW0cet7DT99bgyO03mGkxWesumjTPOCs=s40-c-rp-mo-br100"
+                    alt="Reviewing person Profile Image" style="width: 50px;">
+
+                <!-- Reviewer information -->
+                <div itemprop="author" itemscope itemtype="http://schema.org/Person"
+                    style="display: inline-block; width: 150px; padding-left: 10px; vertical-align:super;">
+                    <span itemprop="name"
+                        style="font-size: 14px; font-weight: 700; line-height: 18px; max-width: 100%; ">Khushi
+                        Sharma</span><svg xmlns="http://www.w3.org/2000/svg" style="width: 12px; margin-left:5px;"
+                        fill="none" viewBox="0 0 14 14"
+                        class="ReviewVerifiedBadge__StyledVerifiedBadge-sc-1l8zk7l-0 jqBsSb es-review-verified-badge-icon">
+                        <path fill="#197BFF"
+                            d="M6.757.236a.35.35 0 0 1 .486 0l1.106 1.07a.35.35 0 0 0 .329.089l1.493-.375a.35.35 0 0 1 .422.244l.422 1.48a.35.35 0 0 0 .24.24l1.481.423a.35.35 0 0 1 .244.422l-.375 1.493a.35.35 0 0 0 .088.329l1.071 1.106a.35.35 0 0 1 0 .486l-1.07 1.106a.35.35 0 0 0-.089.329l.375 1.493a.35.35 0 0 1-.244.422l-1.48.422a.35.35 0 0 0-.24.24l-.423 1.481a.35.35 0 0 1-.422.244l-1.493-.375a.35.35 0 0 0-.329.088l-1.106 1.071a.35.35 0 0 1-.486 0l-1.106-1.07a.35.35 0 0 0-.329-.089l-1.493.375a.35.35 0 0 1-.422-.244l-.422-1.48a.35.35 0 0 0-.24-.24l-1.481-.423a.35.35 0 0 1-.244-.422l.375-1.493a.35.35 0 0 0-.088-.329L.236 7.243a.35.35 0 0 1 0-.486l1.07-1.106a.35.35 0 0 0 .089-.329L1.02 3.829a.35.35 0 0 1 .244-.422l1.48-.422a.35.35 0 0 0 .24-.24l.423-1.481a.35.35 0 0 1 .422-.244l1.493.375a.35.35 0 0 0 .329-.088L6.757.236Z"
+                            data-darkreader-inline-fill="" style="--darkreader-inline-fill: #2b9aff;"></path>
+                        <path fill="#fff" fill-rule="evenodd"
+                            d="M9.065 4.85a.644.644 0 0 1 .899 0 .615.615 0 0 1 .053.823l-.053.059L6.48 9.15a.645.645 0 0 1-.84.052l-.06-.052-1.66-1.527a.616.616 0 0 1 0-.882.645.645 0 0 1 .84-.052l.06.052 1.21 1.086 3.034-2.978Z"
+                            clip-rule="evenodd" data-darkreader-inline-fill=""
+                            style="--darkreader-inline-fill: #e8e6e3;">
+                        </path>
+                    </svg>
+                    <span
+                        style="display: inline-block; font-size: 14px; line-height: 14px; color: rgb(17 17 17 / 50%);">4
+                        months
+                        ago</span>
+                </div>
+
+                <!-- Review details -->
+                <div itemprop="reviewRating" itemscope itemtype="http://schema.org/Rating">
+                    <span style="display: none;" itemprop="ratingValue">5</span>
+                    <span style="width: 40px; font-size: 24px; color: rgb(252 191 2);">
+                        &#9733; &#9733; &#9733; &#9733; &#9733;
+                    </span>
+                </div>
+
+                <span itemprop="description" style="font-size: 19px; color: rgb(17, 17, 17); line-height: 1.4;">Best
+                    faculty
+                    in Jaipur.</span>
+
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" style="width: 70px; display:block; margin-top:10px;"
+                    viewBox="0 0 85 36" class="injected-svg"
+                    data-src="https://static.elfsight.com/icons/app-all-in-one-reviews-logos-google-logo-multicolor.svg"
+                    xmlns:xlink="http://www.w3.org/1999/xlink">
+                    <g clip-path="url(#a-1)">
+                        <path fill="#4285F4"
+                            d="M20.778 13.43h-9.862v2.927h6.994c-.345 4.104-3.76 5.854-6.982 5.854-4.123 0-7.72-3.244-7.72-7.791 0-4.43 3.429-7.841 7.73-7.841 3.317 0 5.272 2.115 5.272 2.115l2.049-2.122s-2.63-2.928-7.427-2.928C4.725 3.644 0 8.8 0 14.367c0 5.457 4.445 10.777 10.988 10.777 5.756 0 9.969-3.942 9.969-9.772 0-1.23-.179-1.941-.179-1.941Z">
+                        </path>
+                        <path fill="#EA4335"
+                            d="M28.857 11.312c-4.047 0-6.947 3.163-6.947 6.853 0 3.744 2.813 6.966 6.994 6.966 3.786 0 6.887-2.893 6.887-6.886 0-4.576-3.607-6.933-6.934-6.933Zm.04 2.714c1.99 0 3.876 1.609 3.876 4.201 0 2.538-1.878 4.192-3.885 4.192-2.205 0-3.945-1.766-3.945-4.212 0-2.394 1.718-4.181 3.954-4.181Z">
+                        </path>
+                        <path fill="#FBBC05"
+                            d="M43.965 11.312c-4.046 0-6.946 3.163-6.946 6.853 0 3.744 2.813 6.966 6.994 6.966 3.785 0 6.886-2.893 6.886-6.886 0-4.576-3.607-6.933-6.934-6.933Zm.04 2.714c1.99 0 3.876 1.609 3.876 4.201 0 2.538-1.877 4.192-3.885 4.192-2.205 0-3.945-1.766-3.945-4.212 0-2.394 1.718-4.181 3.955-4.181Z">
+                        </path>
+                        <path fill="#4285F4"
+                            d="M58.783 11.319c-3.714 0-6.634 3.253-6.634 6.904 0 4.16 3.385 6.918 6.57 6.918 1.97 0 3.017-.782 3.79-1.68v1.363c0 2.384-1.448 3.812-3.633 3.812-2.11 0-3.169-1.57-3.537-2.46l-2.656 1.11c.943 1.992 2.839 4.07 6.215 4.07 3.693 0 6.508-2.327 6.508-7.205V11.734h-2.897v1.17c-.89-.96-2.109-1.585-3.726-1.585Zm.269 2.709c1.821 0 3.69 1.554 3.69 4.21 0 2.699-1.865 4.187-3.73 4.187-1.98 0-3.823-1.608-3.823-4.161 0-2.653 1.914-4.236 3.863-4.236Z">
+                        </path>
+                        <path fill="#EA4335"
+                            d="M78.288 11.302c-3.504 0-6.446 2.788-6.446 6.901 0 4.353 3.28 6.934 6.782 6.934 2.924 0 4.718-1.6 5.789-3.032l-2.389-1.59c-.62.962-1.656 1.902-3.385 1.902-1.943 0-2.836-1.063-3.39-2.094l9.266-3.845-.48-1.126c-.896-2.207-2.984-4.05-5.747-4.05Zm.12 2.658c1.263 0 2.171.671 2.557 1.476l-6.187 2.586c-.267-2.002 1.63-4.062 3.63-4.062Z">
+                        </path>
+                        <path fill="#34A853" d="M67.425 24.727h3.044V4.359h-3.044v20.368Z"></path>
+                    </g>
+                    <defs>
+                        <clipPath id="a-1">
+                            <path fill="#fff" d="M0 0h84.515v36H0z"></path>
+                        </clipPath>
+                    </defs>
+                </svg>
+            </div>
+
+            <!-- Review 2 end  -->
+
+
+
+
+
+            <!-- review 3  Start -->
+
+            <div class="review-item" itemprop="review" itemscope itemtype="http://schema.org/Review"
+                style="margin-right: 20px; width: 248px; padding: 20px; font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;">
+                <!-- Profile image -->
+                <img itemprop="image"
+                    src="https://lh3.googleusercontent.com/a-/ALV-UjUVKBQUroWBdJ9gUZTKjyf-6vXxzgz4sKCaTX5RsHk2bVI=s40-c-rp-mo-br100"
+                    alt="Reviewing person Profile Image" style="width: 50px;">
+
+                <!-- Reviewer information -->
+                <div itemprop="author" itemscope itemtype="http://schema.org/Person"
+                    style="display: inline-block; width: 150px; padding-left: 10px; vertical-align:super;">
+                    <span itemprop="name"
+                        style="font-size: 14px; font-weight: 700; line-height: 18px; max-width: 100%; ">Abhishek
+                        puri</span><svg xmlns="http://www.w3.org/2000/svg" style="width: 12px; margin-left:5px;"
+                        fill="none" viewBox="0 0 14 14"
+                        class="ReviewVerifiedBadge__StyledVerifiedBadge-sc-1l8zk7l-0 jqBsSb es-review-verified-badge-icon">
+                        <path fill="#197BFF"
+                            d="M6.757.236a.35.35 0 0 1 .486 0l1.106 1.07a.35.35 0 0 0 .329.089l1.493-.375a.35.35 0 0 1 .422.244l.422 1.48a.35.35 0 0 0 .24.24l1.481.423a.35.35 0 0 1 .244.422l-.375 1.493a.35.35 0 0 0 .088.329l1.071 1.106a.35.35 0 0 1 0 .486l-1.07 1.106a.35.35 0 0 0-.089.329l.375 1.493a.35.35 0 0 1-.244.422l-1.48.422a.35.35 0 0 0-.24.24l-.423 1.481a.35.35 0 0 1-.422.244l-1.493-.375a.35.35 0 0 0-.329.088l-1.106 1.071a.35.35 0 0 1-.486 0l-1.106-1.07a.35.35 0 0 0-.329-.089l-1.493.375a.35.35 0 0 1-.422-.244l-.422-1.48a.35.35 0 0 0-.24-.24l-1.481-.423a.35.35 0 0 1-.244-.422l.375-1.493a.35.35 0 0 0-.088-.329L.236 7.243a.35.35 0 0 1 0-.486l1.07-1.106a.35.35 0 0 0 .089-.329L1.02 3.829a.35.35 0 0 1 .244-.422l1.48-.422a.35.35 0 0 0 .24-.24l.423-1.481a.35.35 0 0 1 .422-.244l1.493.375a.35.35 0 0 0 .329-.088L6.757.236Z"
+                            data-darkreader-inline-fill="" style="--darkreader-inline-fill: #2b9aff;"></path>
+                        <path fill="#fff" fill-rule="evenodd"
+                            d="M9.065 4.85a.644.644 0 0 1 .899 0 .615.615 0 0 1 .053.823l-.053.059L6.48 9.15a.645.645 0 0 1-.84.052l-.06-.052-1.66-1.527a.616.616 0 0 1 0-.882.645.645 0 0 1 .84-.052l.06.052 1.21 1.086 3.034-2.978Z"
+                            clip-rule="evenodd" data-darkreader-inline-fill=""
+                            style="--darkreader-inline-fill: #e8e6e3;">
+                        </path>
+                    </svg>
+                    <span
+                        style="display: inline-block; font-size: 14px; line-height: 14px; color: rgb(17 17 17 / 50%);">4
+                        months
+                        ago</span>
+                </div>
+
+                <!-- Review details -->
+                <div itemprop="reviewRating" itemscope itemtype="http://schema.org/Rating">
+                    <span style="display: none;" itemprop="ratingValue">5</span>
+                    <span style="width: 40px; font-size: 24px; color: rgb(252 191 2);">
+                        &#9733; &#9733; &#9733; &#9733; &#9733;
+                    </span>
+                </div>
+
+                <span itemprop="description" style="font-size: 19px; color: rgb(17, 17, 17); line-height: 1.4;">The way
+                    Anil
+                    sir teach it's magnificent and Rks sir is god of English believe me it's completely different from
+                    other's,people who is completely dedicated for cat it's heaven for you guys</span>
+
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" style="width: 70px; display:block; margin-top:10px;"
+                    viewBox="0 0 85 36" class="injected-svg"
+                    data-src="https://static.elfsight.com/icons/app-all-in-one-reviews-logos-google-logo-multicolor.svg"
+                    xmlns:xlink="http://www.w3.org/1999/xlink">
+                    <g clip-path="url(#a-1)">
+                        <path fill="#4285F4"
+                            d="M20.778 13.43h-9.862v2.927h6.994c-.345 4.104-3.76 5.854-6.982 5.854-4.123 0-7.72-3.244-7.72-7.791 0-4.43 3.429-7.841 7.73-7.841 3.317 0 5.272 2.115 5.272 2.115l2.049-2.122s-2.63-2.928-7.427-2.928C4.725 3.644 0 8.8 0 14.367c0 5.457 4.445 10.777 10.988 10.777 5.756 0 9.969-3.942 9.969-9.772 0-1.23-.179-1.941-.179-1.941Z">
+                        </path>
+                        <path fill="#EA4335"
+                            d="M28.857 11.312c-4.047 0-6.947 3.163-6.947 6.853 0 3.744 2.813 6.966 6.994 6.966 3.786 0 6.887-2.893 6.887-6.886 0-4.576-3.607-6.933-6.934-6.933Zm.04 2.714c1.99 0 3.876 1.609 3.876 4.201 0 2.538-1.878 4.192-3.885 4.192-2.205 0-3.945-1.766-3.945-4.212 0-2.394 1.718-4.181 3.954-4.181Z">
+                        </path>
+                        <path fill="#FBBC05"
+                            d="M43.965 11.312c-4.046 0-6.946 3.163-6.946 6.853 0 3.744 2.813 6.966 6.994 6.966 3.785 0 6.886-2.893 6.886-6.886 0-4.576-3.607-6.933-6.934-6.933Zm.04 2.714c1.99 0 3.876 1.609 3.876 4.201 0 2.538-1.877 4.192-3.885 4.192-2.205 0-3.945-1.766-3.945-4.212 0-2.394 1.718-4.181 3.955-4.181Z">
+                        </path>
+                        <path fill="#4285F4"
+                            d="M58.783 11.319c-3.714 0-6.634 3.253-6.634 6.904 0 4.16 3.385 6.918 6.57 6.918 1.97 0 3.017-.782 3.79-1.68v1.363c0 2.384-1.448 3.812-3.633 3.812-2.11 0-3.169-1.57-3.537-2.46l-2.656 1.11c.943 1.992 2.839 4.07 6.215 4.07 3.693 0 6.508-2.327 6.508-7.205V11.734h-2.897v1.17c-.89-.96-2.109-1.585-3.726-1.585Zm.269 2.709c1.821 0 3.69 1.554 3.69 4.21 0 2.699-1.865 4.187-3.73 4.187-1.98 0-3.823-1.608-3.823-4.161 0-2.653 1.914-4.236 3.863-4.236Z">
+                        </path>
+                        <path fill="#EA4335"
+                            d="M78.288 11.302c-3.504 0-6.446 2.788-6.446 6.901 0 4.353 3.28 6.934 6.782 6.934 2.924 0 4.718-1.6 5.789-3.032l-2.389-1.59c-.62.962-1.656 1.902-3.385 1.902-1.943 0-2.836-1.063-3.39-2.094l9.266-3.845-.48-1.126c-.896-2.207-2.984-4.05-5.747-4.05Zm.12 2.658c1.263 0 2.171.671 2.557 1.476l-6.187 2.586c-.267-2.002 1.63-4.062 3.63-4.062Z">
+                        </path>
+                        <path fill="#34A853" d="M67.425 24.727h3.044V4.359h-3.044v20.368Z"></path>
+                    </g>
+                    <defs>
+                        <clipPath id="a-1">
+                            <path fill="#fff" d="M0 0h84.515v36H0z"></path>
+                        </clipPath>
+                    </defs>
+                </svg>
+            </div>
+
+            <!-- Review 3 end  -->
+
+
+
+
+
+
+
+
+            <!-- review 4  Start -->
+
+            <div class="review-item" itemprop="review" itemscope itemtype="http://schema.org/Review"
+                style="margin-right: 20px; width: 248px; padding: 20px; font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;">
+                <!-- Profile image -->
+                <img itemprop="image"
+                    src="https://lh3.googleusercontent.com/a-/ALV-UjWR7Qvo511vf_yssusoB_xeBEygmc6u-0aqQjWhWidn7xY=s80-c-rp-mo-br100"
+                    alt="Reviewing person Profile Image" style="width: 50px;">
+
+                <!-- Reviewer information -->
+                <div itemprop="author" itemscope itemtype="http://schema.org/Person"
+                    style="display: inline-block; width: 150px; padding-left: 10px; vertical-align:super;">
+                    <span itemprop="name"
+                        style="font-size: 14px; font-weight: 700; line-height: 18px; max-width: 100%; ">Ayatullah
+                        Qamar</span><svg xmlns="http://www.w3.org/2000/svg" style="width: 12px; margin-left:5px;"
+                        fill="none" viewBox="0 0 14 14"
+                        class="ReviewVerifiedBadge__StyledVerifiedBadge-sc-1l8zk7l-0 jqBsSb es-review-verified-badge-icon">
+                        <path fill="#197BFF"
+                            d="M6.757.236a.35.35 0 0 1 .486 0l1.106 1.07a.35.35 0 0 0 .329.089l1.493-.375a.35.35 0 0 1 .422.244l.422 1.48a.35.35 0 0 0 .24.24l1.481.423a.35.35 0 0 1 .244.422l-.375 1.493a.35.35 0 0 0 .088.329l1.071 1.106a.35.35 0 0 1 0 .486l-1.07 1.106a.35.35 0 0 0-.089.329l.375 1.493a.35.35 0 0 1-.244.422l-1.48.422a.35.35 0 0 0-.24.24l-.423 1.481a.35.35 0 0 1-.422.244l-1.493-.375a.35.35 0 0 0-.329.088l-1.106 1.071a.35.35 0 0 1-.486 0l-1.106-1.07a.35.35 0 0 0-.329-.089l-1.493.375a.35.35 0 0 1-.422-.244l-.422-1.48a.35.35 0 0 0-.24-.24l-1.481-.423a.35.35 0 0 1-.244-.422l.375-1.493a.35.35 0 0 0-.088-.329L.236 7.243a.35.35 0 0 1 0-.486l1.07-1.106a.35.35 0 0 0 .089-.329L1.02 3.829a.35.35 0 0 1 .244-.422l1.48-.422a.35.35 0 0 0 .24-.24l.423-1.481a.35.35 0 0 1 .422-.244l1.493.375a.35.35 0 0 0 .329-.088L6.757.236Z"
+                            data-darkreader-inline-fill="" style="--darkreader-inline-fill: #2b9aff;"></path>
+                        <path fill="#fff" fill-rule="evenodd"
+                            d="M9.065 4.85a.644.644 0 0 1 .899 0 .615.615 0 0 1 .053.823l-.053.059L6.48 9.15a.645.645 0 0 1-.84.052l-.06-.052-1.66-1.527a.616.616 0 0 1 0-.882.645.645 0 0 1 .84-.052l.06.052 1.21 1.086 3.034-2.978Z"
+                            clip-rule="evenodd" data-darkreader-inline-fill=""
+                            style="--darkreader-inline-fill: #e8e6e3;">
+                        </path>
+                    </svg>
+                    <span
+                        style="display: inline-block; font-size: 14px; line-height: 14px; color: rgb(17 17 17 / 50%);">5
+                        months
+                        ago</span>
+                </div>
+
+                <!-- Review details -->
+                <div itemprop="reviewRating" itemscope itemtype="http://schema.org/Rating">
+                    <span style="display: none;" itemprop="ratingValue">5</span>
+                    <span style="width: 40px; font-size: 24px; color: rgb(252 191 2);">
+                        &#9733; &#9733; &#9733; &#9733; &#9733;
+                    </span>
+                </div>
+
+                <span itemprop="description" style="font-size: 19px; color: rgb(17, 17, 17); line-height: 1.4;">If in
+                    need
+                    of a
+                    great faculty for your preparations.... this is the best place...</span>
+
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" style="width: 70px; display:block; margin-top:10px;"
+                    viewBox="0 0 85 36" class="injected-svg"
+                    data-src="https://static.elfsight.com/icons/app-all-in-one-reviews-logos-google-logo-multicolor.svg"
+                    xmlns:xlink="http://www.w3.org/1999/xlink">
+                    <g clip-path="url(#a-1)">
+                        <path fill="#4285F4"
+                            d="M20.778 13.43h-9.862v2.927h6.994c-.345 4.104-3.76 5.854-6.982 5.854-4.123 0-7.72-3.244-7.72-7.791 0-4.43 3.429-7.841 7.73-7.841 3.317 0 5.272 2.115 5.272 2.115l2.049-2.122s-2.63-2.928-7.427-2.928C4.725 3.644 0 8.8 0 14.367c0 5.457 4.445 10.777 10.988 10.777 5.756 0 9.969-3.942 9.969-9.772 0-1.23-.179-1.941-.179-1.941Z">
+                        </path>
+                        <path fill="#EA4335"
+                            d="M28.857 11.312c-4.047 0-6.947 3.163-6.947 6.853 0 3.744 2.813 6.966 6.994 6.966 3.786 0 6.887-2.893 6.887-6.886 0-4.576-3.607-6.933-6.934-6.933Zm.04 2.714c1.99 0 3.876 1.609 3.876 4.201 0 2.538-1.878 4.192-3.885 4.192-2.205 0-3.945-1.766-3.945-4.212 0-2.394 1.718-4.181 3.954-4.181Z">
+                        </path>
+                        <path fill="#FBBC05"
+                            d="M43.965 11.312c-4.046 0-6.946 3.163-6.946 6.853 0 3.744 2.813 6.966 6.994 6.966 3.785 0 6.886-2.893 6.886-6.886 0-4.576-3.607-6.933-6.934-6.933Zm.04 2.714c1.99 0 3.876 1.609 3.876 4.201 0 2.538-1.877 4.192-3.885 4.192-2.205 0-3.945-1.766-3.945-4.212 0-2.394 1.718-4.181 3.955-4.181Z">
+                        </path>
+                        <path fill="#4285F4"
+                            d="M58.783 11.319c-3.714 0-6.634 3.253-6.634 6.904 0 4.16 3.385 6.918 6.57 6.918 1.97 0 3.017-.782 3.79-1.68v1.363c0 2.384-1.448 3.812-3.633 3.812-2.11 0-3.169-1.57-3.537-2.46l-2.656 1.11c.943 1.992 2.839 4.07 6.215 4.07 3.693 0 6.508-2.327 6.508-7.205V11.734h-2.897v1.17c-.89-.96-2.109-1.585-3.726-1.585Zm.269 2.709c1.821 0 3.69 1.554 3.69 4.21 0 2.699-1.865 4.187-3.73 4.187-1.98 0-3.823-1.608-3.823-4.161 0-2.653 1.914-4.236 3.863-4.236Z">
+                        </path>
+                        <path fill="#EA4335"
+                            d="M78.288 11.302c-3.504 0-6.446 2.788-6.446 6.901 0 4.353 3.28 6.934 6.782 6.934 2.924 0 4.718-1.6 5.789-3.032l-2.389-1.59c-.62.962-1.656 1.902-3.385 1.902-1.943 0-2.836-1.063-3.39-2.094l9.266-3.845-.48-1.126c-.896-2.207-2.984-4.05-5.747-4.05Zm.12 2.658c1.263 0 2.171.671 2.557 1.476l-6.187 2.586c-.267-2.002 1.63-4.062 3.63-4.062Z">
+                        </path>
+                        <path fill="#34A853" d="M67.425 24.727h3.044V4.359h-3.044v20.368Z"></path>
+                    </g>
+                    <defs>
+                        <clipPath id="a-1">
+                            <path fill="#fff" d="M0 0h84.515v36H0z"></path>
+                        </clipPath>
+                    </defs>
+                </svg>
+            </div>
+
+            <!-- Review 4 end  -->
+
+
+
+
+
+
+
+
+            <!-- review 5  Start -->
+
+            <div class="review-item" itemprop="review" itemscope itemtype="http://schema.org/Review"
+                style="margin-right: 20px; width: 248px; padding: 20px; font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;">
+                <!-- Profile image -->
+                <img itemprop="image"
+                    src="https://lh3.googleusercontent.com/a/ACg8ocLRMlvQgE2UkuNkENJf1jFmHMfaQTCDSoa4GnHKwHe6=s40-c-rp-mo-br100"
+                    alt="Reviewing person Profile Image" style="width: 50px;">
+
+                <!-- Reviewer information -->
+                <div itemprop="author" itemscope itemtype="http://schema.org/Person"
+                    style="display: inline-block; width: 150px; padding-left: 10px; vertical-align:super;">
+                    <span itemprop="name"
+                        style="font-size: 14px; font-weight: 700; line-height: 18px; max-width: 100%; ">Rahul
+                        Goswami</span><svg xmlns="http://www.w3.org/2000/svg" style="width: 12px; margin-left:5px;"
+                        fill="none" viewBox="0 0 14 14"
+                        class="ReviewVerifiedBadge__StyledVerifiedBadge-sc-1l8zk7l-0 jqBsSb es-review-verified-badge-icon">
+                        <path fill="#197BFF"
+                            d="M6.757.236a.35.35 0 0 1 .486 0l1.106 1.07a.35.35 0 0 0 .329.089l1.493-.375a.35.35 0 0 1 .422.244l.422 1.48a.35.35 0 0 0 .24.24l1.481.423a.35.35 0 0 1 .244.422l-.375 1.493a.35.35 0 0 0 .088.329l1.071 1.106a.35.35 0 0 1 0 .486l-1.07 1.106a.35.35 0 0 0-.089.329l.375 1.493a.35.35 0 0 1-.244.422l-1.48.422a.35.35 0 0 0-.24.24l-.423 1.481a.35.35 0 0 1-.422.244l-1.493-.375a.35.35 0 0 0-.329.088l-1.106 1.071a.35.35 0 0 1-.486 0l-1.106-1.07a.35.35 0 0 0-.329-.089l-1.493.375a.35.35 0 0 1-.422-.244l-.422-1.48a.35.35 0 0 0-.24-.24l-1.481-.423a.35.35 0 0 1-.244-.422l.375-1.493a.35.35 0 0 0-.088-.329L.236 7.243a.35.35 0 0 1 0-.486l1.07-1.106a.35.35 0 0 0 .089-.329L1.02 3.829a.35.35 0 0 1 .244-.422l1.48-.422a.35.35 0 0 0 .24-.24l.423-1.481a.35.35 0 0 1 .422-.244l1.493.375a.35.35 0 0 0 .329-.088L6.757.236Z"
+                            data-darkreader-inline-fill="" style="--darkreader-inline-fill: #2b9aff;"></path>
+                        <path fill="#fff" fill-rule="evenodd"
+                            d="M9.065 4.85a.644.644 0 0 1 .899 0 .615.615 0 0 1 .053.823l-.053.059L6.48 9.15a.645.645 0 0 1-.84.052l-.06-.052-1.66-1.527a.616.616 0 0 1 0-.882.645.645 0 0 1 .84-.052l.06.052 1.21 1.086 3.034-2.978Z"
+                            clip-rule="evenodd" data-darkreader-inline-fill=""
+                            style="--darkreader-inline-fill: #e8e6e3;">
+                        </path>
+                    </svg>
+                    <span
+                        style="display: inline-block; font-size: 14px; line-height: 14px; color: rgb(17 17 17 / 50%);">5
+                        months
+                        ago</span>
+                </div>
+
+                <!-- Review details -->
+                <div itemprop="reviewRating" itemscope itemtype="http://schema.org/Rating">
+                    <span style="display: none;" itemprop="ratingValue">5</span>
+                    <span style="width: 40px; font-size: 24px; color: rgb(252 191 2);">
+                        &#9733; &#9733; &#9733; &#9733; &#9733;
+                    </span>
+                </div>
+
+                <span itemprop="description" style="font-size: 19px; color: rgb(17, 17, 17); line-height: 1.4;">The best
+                    coaching facility for all MCA entrance exams. The entire faculty is supportive and has a lot of
+                    expertise. Particularly, Anil Sharma, sir, is the best math instructor.All employees have highly
+                    supportive personalities.</span>
+
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" style="width: 70px; display:block; margin-top:10px;"
+                    viewBox="0 0 85 36" class="injected-svg"
+                    data-src="https://static.elfsight.com/icons/app-all-in-one-reviews-logos-google-logo-multicolor.svg"
+                    xmlns:xlink="http://www.w3.org/1999/xlink">
+                    <g clip-path="url(#a-1)">
+                        <path fill="#4285F4"
+                            d="M20.778 13.43h-9.862v2.927h6.994c-.345 4.104-3.76 5.854-6.982 5.854-4.123 0-7.72-3.244-7.72-7.791 0-4.43 3.429-7.841 7.73-7.841 3.317 0 5.272 2.115 5.272 2.115l2.049-2.122s-2.63-2.928-7.427-2.928C4.725 3.644 0 8.8 0 14.367c0 5.457 4.445 10.777 10.988 10.777 5.756 0 9.969-3.942 9.969-9.772 0-1.23-.179-1.941-.179-1.941Z">
+                        </path>
+                        <path fill="#EA4335"
+                            d="M28.857 11.312c-4.047 0-6.947 3.163-6.947 6.853 0 3.744 2.813 6.966 6.994 6.966 3.786 0 6.887-2.893 6.887-6.886 0-4.576-3.607-6.933-6.934-6.933Zm.04 2.714c1.99 0 3.876 1.609 3.876 4.201 0 2.538-1.878 4.192-3.885 4.192-2.205 0-3.945-1.766-3.945-4.212 0-2.394 1.718-4.181 3.954-4.181Z">
+                        </path>
+                        <path fill="#FBBC05"
+                            d="M43.965 11.312c-4.046 0-6.946 3.163-6.946 6.853 0 3.744 2.813 6.966 6.994 6.966 3.785 0 6.886-2.893 6.886-6.886 0-4.576-3.607-6.933-6.934-6.933Zm.04 2.714c1.99 0 3.876 1.609 3.876 4.201 0 2.538-1.877 4.192-3.885 4.192-2.205 0-3.945-1.766-3.945-4.212 0-2.394 1.718-4.181 3.955-4.181Z">
+                        </path>
+                        <path fill="#4285F4"
+                            d="M58.783 11.319c-3.714 0-6.634 3.253-6.634 6.904 0 4.16 3.385 6.918 6.57 6.918 1.97 0 3.017-.782 3.79-1.68v1.363c0 2.384-1.448 3.812-3.633 3.812-2.11 0-3.169-1.57-3.537-2.46l-2.656 1.11c.943 1.992 2.839 4.07 6.215 4.07 3.693 0 6.508-2.327 6.508-7.205V11.734h-2.897v1.17c-.89-.96-2.109-1.585-3.726-1.585Zm.269 2.709c1.821 0 3.69 1.554 3.69 4.21 0 2.699-1.865 4.187-3.73 4.187-1.98 0-3.823-1.608-3.823-4.161 0-2.653 1.914-4.236 3.863-4.236Z">
+                        </path>
+                        <path fill="#EA4335"
+                            d="M78.288 11.302c-3.504 0-6.446 2.788-6.446 6.901 0 4.353 3.28 6.934 6.782 6.934 2.924 0 4.718-1.6 5.789-3.032l-2.389-1.59c-.62.962-1.656 1.902-3.385 1.902-1.943 0-2.836-1.063-3.39-2.094l9.266-3.845-.48-1.126c-.896-2.207-2.984-4.05-5.747-4.05Zm.12 2.658c1.263 0 2.171.671 2.557 1.476l-6.187 2.586c-.267-2.002 1.63-4.062 3.63-4.062Z">
+                        </path>
+                        <path fill="#34A853" d="M67.425 24.727h3.044V4.359h-3.044v20.368Z"></path>
+                    </g>
+                    <defs>
+                        <clipPath id="a-1">
+                            <path fill="#fff" d="M0 0h84.515v36H0z"></path>
+                        </clipPath>
+                    </defs>
+                </svg>
+            </div>
+
+            <!-- Review 5 end  -->
+
+
+
+
+
+
+
+
+            <!-- review 2  Start -->
+
+            <div class="review-item" itemprop="review" itemscope itemtype="http://schema.org/Review"
+                style="margin-right: 20px; width: 248px; padding: 20px; font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;">
+                <!-- Profile image -->
+                <img itemprop="image"
+                    src="https://lh3.googleusercontent.com/a-/ALV-UjW9Lc8iqw-fq2xAW0cet7DT99bgyO03mGkxWesumjTPOCs=s40-c-rp-mo-br100"
+                    alt="Reviewing person Profile Image" style="width: 50px;">
+
+                <!-- Reviewer information -->
+                <div itemprop="author" itemscope itemtype="http://schema.org/Person"
+                    style="display: inline-block; width: 150px; padding-left: 10px; vertical-align:super;">
+                    <span itemprop="name"
+                        style="font-size: 14px; font-weight: 700; line-height: 18px; max-width: 100%; ">Khushi
+                        Sharma</span><svg xmlns="http://www.w3.org/2000/svg" style="width: 12px; margin-left:5px;"
+                        fill="none" viewBox="0 0 14 14"
+                        class="ReviewVerifiedBadge__StyledVerifiedBadge-sc-1l8zk7l-0 jqBsSb es-review-verified-badge-icon">
+                        <path fill="#197BFF"
+                            d="M6.757.236a.35.35 0 0 1 .486 0l1.106 1.07a.35.35 0 0 0 .329.089l1.493-.375a.35.35 0 0 1 .422.244l.422 1.48a.35.35 0 0 0 .24.24l1.481.423a.35.35 0 0 1 .244.422l-.375 1.493a.35.35 0 0 0 .088.329l1.071 1.106a.35.35 0 0 1 0 .486l-1.07 1.106a.35.35 0 0 0-.089.329l.375 1.493a.35.35 0 0 1-.244.422l-1.48.422a.35.35 0 0 0-.24.24l-.423 1.481a.35.35 0 0 1-.422.244l-1.493-.375a.35.35 0 0 0-.329.088l-1.106 1.071a.35.35 0 0 1-.486 0l-1.106-1.07a.35.35 0 0 0-.329-.089l-1.493.375a.35.35 0 0 1-.422-.244l-.422-1.48a.35.35 0 0 0-.24-.24l-1.481-.423a.35.35 0 0 1-.244-.422l.375-1.493a.35.35 0 0 0-.088-.329L.236 7.243a.35.35 0 0 1 0-.486l1.07-1.106a.35.35 0 0 0 .089-.329L1.02 3.829a.35.35 0 0 1 .244-.422l1.48-.422a.35.35 0 0 0 .24-.24l.423-1.481a.35.35 0 0 1 .422-.244l1.493.375a.35.35 0 0 0 .329-.088L6.757.236Z"
+                            data-darkreader-inline-fill="" style="--darkreader-inline-fill: #2b9aff;"></path>
+                        <path fill="#fff" fill-rule="evenodd"
+                            d="M9.065 4.85a.644.644 0 0 1 .899 0 .615.615 0 0 1 .053.823l-.053.059L6.48 9.15a.645.645 0 0 1-.84.052l-.06-.052-1.66-1.527a.616.616 0 0 1 0-.882.645.645 0 0 1 .84-.052l.06.052 1.21 1.086 3.034-2.978Z"
+                            clip-rule="evenodd" data-darkreader-inline-fill=""
+                            style="--darkreader-inline-fill: #e8e6e3;">
+                        </path>
+                    </svg>
+                    <span
+                        style="display: inline-block; font-size: 14px; line-height: 14px; color: rgb(17 17 17 / 50%);">1
+                        year
+                        ago</span>
+                </div>
+
+                <!-- Review details -->
+                <div itemprop="reviewRating" itemscope itemtype="http://schema.org/Rating">
+                    <span style="display: none;" itemprop="ratingValue">5</span>
+                    <span style="width: 40px; font-size: 24px; color: rgb(252 191 2);">
+                        &#9733; &#9733; &#9733; &#9733; &#9733;
+                    </span>
+                </div>
+
+                <span itemprop="description" style="font-size: 19px; color: rgb(17, 17, 17); line-height: 1.4;">If in
+                    need
+                    of a
+                    great faculty for your preparations.... this is the best place...</span>
+
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" style="width: 70px; display:block; margin-top:10px;"
+                    viewBox="0 0 85 36" class="injected-svg"
+                    data-src="https://static.elfsight.com/icons/app-all-in-one-reviews-logos-google-logo-multicolor.svg"
+                    xmlns:xlink="http://www.w3.org/1999/xlink">
+                    <g clip-path="url(#a-1)">
+                        <path fill="#4285F4"
+                            d="M20.778 13.43h-9.862v2.927h6.994c-.345 4.104-3.76 5.854-6.982 5.854-4.123 0-7.72-3.244-7.72-7.791 0-4.43 3.429-7.841 7.73-7.841 3.317 0 5.272 2.115 5.272 2.115l2.049-2.122s-2.63-2.928-7.427-2.928C4.725 3.644 0 8.8 0 14.367c0 5.457 4.445 10.777 10.988 10.777 5.756 0 9.969-3.942 9.969-9.772 0-1.23-.179-1.941-.179-1.941Z">
+                        </path>
+                        <path fill="#EA4335"
+                            d="M28.857 11.312c-4.047 0-6.947 3.163-6.947 6.853 0 3.744 2.813 6.966 6.994 6.966 3.786 0 6.887-2.893 6.887-6.886 0-4.576-3.607-6.933-6.934-6.933Zm.04 2.714c1.99 0 3.876 1.609 3.876 4.201 0 2.538-1.878 4.192-3.885 4.192-2.205 0-3.945-1.766-3.945-4.212 0-2.394 1.718-4.181 3.954-4.181Z">
+                        </path>
+                        <path fill="#FBBC05"
+                            d="M43.965 11.312c-4.046 0-6.946 3.163-6.946 6.853 0 3.744 2.813 6.966 6.994 6.966 3.785 0 6.886-2.893 6.886-6.886 0-4.576-3.607-6.933-6.934-6.933Zm.04 2.714c1.99 0 3.876 1.609 3.876 4.201 0 2.538-1.877 4.192-3.885 4.192-2.205 0-3.945-1.766-3.945-4.212 0-2.394 1.718-4.181 3.955-4.181Z">
+                        </path>
+                        <path fill="#4285F4"
+                            d="M58.783 11.319c-3.714 0-6.634 3.253-6.634 6.904 0 4.16 3.385 6.918 6.57 6.918 1.97 0 3.017-.782 3.79-1.68v1.363c0 2.384-1.448 3.812-3.633 3.812-2.11 0-3.169-1.57-3.537-2.46l-2.656 1.11c.943 1.992 2.839 4.07 6.215 4.07 3.693 0 6.508-2.327 6.508-7.205V11.734h-2.897v1.17c-.89-.96-2.109-1.585-3.726-1.585Zm.269 2.709c1.821 0 3.69 1.554 3.69 4.21 0 2.699-1.865 4.187-3.73 4.187-1.98 0-3.823-1.608-3.823-4.161 0-2.653 1.914-4.236 3.863-4.236Z">
+                        </path>
+                        <path fill="#EA4335"
+                            d="M78.288 11.302c-3.504 0-6.446 2.788-6.446 6.901 0 4.353 3.28 6.934 6.782 6.934 2.924 0 4.718-1.6 5.789-3.032l-2.389-1.59c-.62.962-1.656 1.902-3.385 1.902-1.943 0-2.836-1.063-3.39-2.094l9.266-3.845-.48-1.126c-.896-2.207-2.984-4.05-5.747-4.05Zm.12 2.658c1.263 0 2.171.671 2.557 1.476l-6.187 2.586c-.267-2.002 1.63-4.062 3.63-4.062Z">
+                        </path>
+                        <path fill="#34A853" d="M67.425 24.727h3.044V4.359h-3.044v20.368Z"></path>
+                    </g>
+                    <defs>
+                        <clipPath id="a-1">
+                            <path fill="#fff" d="M0 0h84.515v36H0z"></path>
+                        </clipPath>
+                    </defs>
+                </svg>
+            </div>
+
+            <!-- Review 2 end  -->
+
+
+
+
+
+
+
+
+            <!-- review 2  Start -->
+
+            <div class="review-item" itemprop="review" itemscope itemtype="http://schema.org/Review"
+                style="margin-right: 20px; width: 248px; padding: 20px; font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;">
+                <!-- Profile image -->
+                <img itemprop="image"
+                    src="https://lh3.googleusercontent.com/a-/ALV-UjW9Lc8iqw-fq2xAW0cet7DT99bgyO03mGkxWesumjTPOCs=s40-c-rp-mo-br100"
+                    alt="Reviewing person Profile Image" style="width: 50px;">
+
+                <!-- Reviewer information -->
+                <div itemprop="author" itemscope itemtype="http://schema.org/Person"
+                    style="display: inline-block; width: 150px; padding-left: 10px; vertical-align:super;">
+                    <span itemprop="name"
+                        style="font-size: 14px; font-weight: 700; line-height: 18px; max-width: 100%; ">Khushi
+                        Sharma</span><svg xmlns="http://www.w3.org/2000/svg" style="width: 12px; margin-left:5px;"
+                        fill="none" viewBox="0 0 14 14"
+                        class="ReviewVerifiedBadge__StyledVerifiedBadge-sc-1l8zk7l-0 jqBsSb es-review-verified-badge-icon">
+                        <path fill="#197BFF"
+                            d="M6.757.236a.35.35 0 0 1 .486 0l1.106 1.07a.35.35 0 0 0 .329.089l1.493-.375a.35.35 0 0 1 .422.244l.422 1.48a.35.35 0 0 0 .24.24l1.481.423a.35.35 0 0 1 .244.422l-.375 1.493a.35.35 0 0 0 .088.329l1.071 1.106a.35.35 0 0 1 0 .486l-1.07 1.106a.35.35 0 0 0-.089.329l.375 1.493a.35.35 0 0 1-.244.422l-1.48.422a.35.35 0 0 0-.24.24l-.423 1.481a.35.35 0 0 1-.422.244l-1.493-.375a.35.35 0 0 0-.329.088l-1.106 1.071a.35.35 0 0 1-.486 0l-1.106-1.07a.35.35 0 0 0-.329-.089l-1.493.375a.35.35 0 0 1-.422-.244l-.422-1.48a.35.35 0 0 0-.24-.24l-1.481-.423a.35.35 0 0 1-.244-.422l.375-1.493a.35.35 0 0 0-.088-.329L.236 7.243a.35.35 0 0 1 0-.486l1.07-1.106a.35.35 0 0 0 .089-.329L1.02 3.829a.35.35 0 0 1 .244-.422l1.48-.422a.35.35 0 0 0 .24-.24l.423-1.481a.35.35 0 0 1 .422-.244l1.493.375a.35.35 0 0 0 .329-.088L6.757.236Z"
+                            data-darkreader-inline-fill="" style="--darkreader-inline-fill: #2b9aff;"></path>
+                        <path fill="#fff" fill-rule="evenodd"
+                            d="M9.065 4.85a.644.644 0 0 1 .899 0 .615.615 0 0 1 .053.823l-.053.059L6.48 9.15a.645.645 0 0 1-.84.052l-.06-.052-1.66-1.527a.616.616 0 0 1 0-.882.645.645 0 0 1 .84-.052l.06.052 1.21 1.086 3.034-2.978Z"
+                            clip-rule="evenodd" data-darkreader-inline-fill=""
+                            style="--darkreader-inline-fill: #e8e6e3;">
+                        </path>
+                    </svg>
+                    <span
+                        style="display: inline-block; font-size: 14px; line-height: 14px; color: rgb(17 17 17 / 50%);">1
+                        year
+                        ago</span>
+                </div>
+
+                <!-- Review details -->
+                <div itemprop="reviewRating" itemscope itemtype="http://schema.org/Rating">
+                    <span style="display: none;" itemprop="ratingValue">5</span>
+                    <span style="width: 40px; font-size: 24px; color: rgb(252 191 2);">
+                        &#9733; &#9733; &#9733; &#9733; &#9733;
+                    </span>
+                </div>
+
+                <span itemprop="description" style="font-size: 19px; color: rgb(17, 17, 17); line-height: 1.4;">If in
+                    need
+                    of a
+                    great faculty for your preparations.... this is the best place...</span>
+
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" style="width: 70px; display:block; margin-top:10px;"
+                    viewBox="0 0 85 36" class="injected-svg"
+                    data-src="https://static.elfsight.com/icons/app-all-in-one-reviews-logos-google-logo-multicolor.svg"
+                    xmlns:xlink="http://www.w3.org/1999/xlink">
+                    <g clip-path="url(#a-1)">
+                        <path fill="#4285F4"
+                            d="M20.778 13.43h-9.862v2.927h6.994c-.345 4.104-3.76 5.854-6.982 5.854-4.123 0-7.72-3.244-7.72-7.791 0-4.43 3.429-7.841 7.73-7.841 3.317 0 5.272 2.115 5.272 2.115l2.049-2.122s-2.63-2.928-7.427-2.928C4.725 3.644 0 8.8 0 14.367c0 5.457 4.445 10.777 10.988 10.777 5.756 0 9.969-3.942 9.969-9.772 0-1.23-.179-1.941-.179-1.941Z">
+                        </path>
+                        <path fill="#EA4335"
+                            d="M28.857 11.312c-4.047 0-6.947 3.163-6.947 6.853 0 3.744 2.813 6.966 6.994 6.966 3.786 0 6.887-2.893 6.887-6.886 0-4.576-3.607-6.933-6.934-6.933Zm.04 2.714c1.99 0 3.876 1.609 3.876 4.201 0 2.538-1.878 4.192-3.885 4.192-2.205 0-3.945-1.766-3.945-4.212 0-2.394 1.718-4.181 3.954-4.181Z">
+                        </path>
+                        <path fill="#FBBC05"
+                            d="M43.965 11.312c-4.046 0-6.946 3.163-6.946 6.853 0 3.744 2.813 6.966 6.994 6.966 3.785 0 6.886-2.893 6.886-6.886 0-4.576-3.607-6.933-6.934-6.933Zm.04 2.714c1.99 0 3.876 1.609 3.876 4.201 0 2.538-1.877 4.192-3.885 4.192-2.205 0-3.945-1.766-3.945-4.212 0-2.394 1.718-4.181 3.955-4.181Z">
+                        </path>
+                        <path fill="#4285F4"
+                            d="M58.783 11.319c-3.714 0-6.634 3.253-6.634 6.904 0 4.16 3.385 6.918 6.57 6.918 1.97 0 3.017-.782 3.79-1.68v1.363c0 2.384-1.448 3.812-3.633 3.812-2.11 0-3.169-1.57-3.537-2.46l-2.656 1.11c.943 1.992 2.839 4.07 6.215 4.07 3.693 0 6.508-2.327 6.508-7.205V11.734h-2.897v1.17c-.89-.96-2.109-1.585-3.726-1.585Zm.269 2.709c1.821 0 3.69 1.554 3.69 4.21 0 2.699-1.865 4.187-3.73 4.187-1.98 0-3.823-1.608-3.823-4.161 0-2.653 1.914-4.236 3.863-4.236Z">
+                        </path>
+                        <path fill="#EA4335"
+                            d="M78.288 11.302c-3.504 0-6.446 2.788-6.446 6.901 0 4.353 3.28 6.934 6.782 6.934 2.924 0 4.718-1.6 5.789-3.032l-2.389-1.59c-.62.962-1.656 1.902-3.385 1.902-1.943 0-2.836-1.063-3.39-2.094l9.266-3.845-.48-1.126c-.896-2.207-2.984-4.05-5.747-4.05Zm.12 2.658c1.263 0 2.171.671 2.557 1.476l-6.187 2.586c-.267-2.002 1.63-4.062 3.63-4.062Z">
+                        </path>
+                        <path fill="#34A853" d="M67.425 24.727h3.044V4.359h-3.044v20.368Z"></path>
+                    </g>
+                    <defs>
+                        <clipPath id="a-1">
+                            <path fill="#fff" d="M0 0h84.515v36H0z"></path>
+                        </clipPath>
+                    </defs>
+                </svg>
+            </div>
+
+            <!-- Review 2 end  -->
+
+
+
+        </div>
+        <button class="scroll-button" id="scroll-right" onclick="scrollReviews(1)"> &gt; </button>
+    </div>
+
+    
+
+
+    <script>
+        const reviewContainer = document.querySelector('.review');
+        const scrollButtonLeft = document.getElementById('scroll-left');
+        const scrollButtonRight = document.getElementById('scroll-right');
+        const scrollStep = 300; // Adjust as needed
+        const scrollInterval = 5000; // 5 seconds
+
+        let intervalId;
+
+        function scrollReviews(direction) {
+            reviewContainer.scrollLeft += direction * scrollStep;
+        }
+
+        function startAutoScroll() {
+            intervalId = setInterval(() => {
+                scrollReviews(1);
+            }, scrollInterval);
+        }
+
+        startAutoScroll();
+
+        document.getElementById('reviews-container').addEventListener('mouseenter', () => {
+            clearInterval(intervalId);
+        });
+
+        document.getElementById('reviews-container').addEventListener('mouseleave', () => {
+            startAutoScroll();
+        });
+
+        // Disable manual scrolling by preventing default behavior
+        document.getElementById('reviews-container').addEventListener('scroll', (e) => {
+            e.preventDefault();
+        });
+    </script>
+
+</body>
+
+</html>
